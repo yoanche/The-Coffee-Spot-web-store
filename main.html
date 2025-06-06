@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>The Coffee Spot</title>
+    <link rel="icon" href="img/icon.png" type="image/x-icon" />
+    <link rel="stylesheet" href="main.css" />
+</head>
+<body>
+    <div class="header-container">
+        <img src="img/logo.jpg" class="logo" alt="The Coffee Spot" />
+        <div class="title-container">
+            <h1>The Coffee Spot</h1>
+            <h2>"Take a sip, Relax, Repeat!"</h2>
+            <hr />
+        </div>
+    </div>
+
+    
+    <div class="nav-bar">
+        <a href="contact.html"><button>Контакти</button></a>
+        <a href="about.html"><button>За нас</button></a>
+        <a href="reviews.html"><button>Ревюта</button></a>
+        <a href="order.html"><button>Поръчай</button></a>
+        
+        
+        <span id="auth-buttons"></span>
+    </div>
+
+    
+    <section class="products-section">
+        <div class="product">
+            <a href="arabica-coffee.html">
+                <img src="img/coffee.jpg" alt="Arabica Coffee" />
+                <h3>Arabica Coffee</h3>
+                <p>100% Арабика с нежен и плътен вкус.</p>
+            </a>
+        </div>
+        <div class="product">
+            <a href="cappuccino.html">
+                <img src="img/Cappuccino.png" alt="Cappuccino" />
+                <h3>Capuchino</h3>
+                <p>Перфектната комбинация от кафе, мляко и пяна</p>
+            </a>
+        </div>
+        <div class="product">
+            <a href="latte.html">
+                <img src="img/latte.jpg" alt="Latte" />
+                <h3>Latte</h3>
+                <p>Еспресо с млечно-кремообразна текстура.</p>
+            </a>
+        </div>
+        <div class="product">
+            <a href="matcha-latte.html">
+                <img src="img/Matcha latte.jpg" alt="Matcha Latte" />
+                <h3>Matcha Latte</h3>
+                <p>Нежно и ароматно лате с наситен вкус на матча и кадифена млечна пяна.</p>
+            </a>
+        </div>
+        <div class="product">
+            <a href="flat-white.html">
+                <img src="img/flat white.png" alt="Flat White" />
+                <h3>Flat White</h3>
+                <p>Кремообразно кафе с перфектен баланс между еспресо и мляко.</p>
+            </a>
+        </div>
+        <div class="product">
+            <a href="iced-frappe.html">
+                <img src="img/iced frape.jpg" alt="Iced Frappé" />
+                <h3>Iced Frappé</h3>
+                <p>Освежаващо кафе, идеално за топлите дни.</p>
+            </a>
+        </div>
+        <div class="product">
+            <a href="hot-chocolate.html">
+                <img src="img/hot choclate.jpg" alt="Hot Chocolate" />
+                <h3>Hot Chocolate</h3>
+                <p>Гъст и ароматен топъл шоколад за истинско удоволствие.</p>
+            </a>
+        </div>
+        <div class="product">
+            <a href="herbal-tea.html">
+                <img src="img/tea.jpg" alt="Herbal Tea" />
+                <h3>Herbal Tea</h3>
+                <p>Ароматен и успокояващ чай с внимателно подбрани билки.</p>
+            </a>
+        </div>
+    </section>
+
+
+    <script src="main.js"></script>
+
+    <script>
+    const authContainer = document.getElementById('auth-buttons');
+    const user = localStorage.getItem('user');
+
+    if (user) {
+        authContainer.innerHTML = `
+            <span style="margin-right: 10px;">Здравей, ${user}!</span>
+            <button onclick="logout()">Изход</button>
+        `;
+    } else {
+        authContainer.innerHTML = `<a href="login.html"><button>Вход</button></a>`;
+    }
+
+    function logout() {
+        localStorage.removeItem('user');
+        window.location.reload(); 
+    }
+</script>
+</body>
+</html>

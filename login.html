@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="bg">
+<head>
+    <meta charset="UTF-8">
+    <title>Вход</title>
+    <link rel="stylesheet" href="main.css">
+</head>
+<body>
+    <div class="content-container">
+        <h2>Вход</h2>
+
+        <form id="loginForm">
+            <input type="text" name="username" placeholder="Потребителско име" required><br>
+            <input type="password" name="password" placeholder="Парола" required><br>
+            <button type="submit">Вход</button>
+        </form>
+
+        <p>Нямаш профил? <a href="register.html">Регистрирай се</a></p>
+    </div>
+
+    <script>
+        document.getElementById('loginForm').addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            const username = this.username.value.trim();
+            const password = this.password.value.trim();
+            const savedPassword = localStorage.getItem(`user_${username}`);
+
+            if (!savedPassword || savedPassword !== password) {
+                alert("Грешно потребителско име или парола.");
+                return;
+            }
+
+            localStorage.setItem('user', username);
+            alert("Добре дошъл, " + username + "!");
+            window.location.href = "order.html";
+        });
+    </script>
+</body>
+</html>

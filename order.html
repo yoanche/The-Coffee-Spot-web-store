@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="bg">
+<head>
+  <meta charset="UTF-8">
+  <title>Поръчай</title>
+  <link rel="stylesheet" href="main.css">
+</head>
+<body>
+  <a href="main.html" class="back-button">← Начало</a>
+
+  <div class="content-container">
+    <h2>Поръчка</h2>
+    <p>Попълни формата по-долу, за да направиш поръчка. Ще се свържем с теб възможно най-скоро.</p>
+
+    <form class="order-form" id="simpleOrderForm">
+      <input type="text" name="name" placeholder="Вашето име" required><br>
+      <input type="text" name="phone" placeholder="Телефон за връзка" required><br>
+      <input type="text" name="address" placeholder="Адрес за доставка" required><br>
+      <input type="text" name="product" placeholder="Какво желаете да поръчате?" required><br>
+      <textarea name="notes" placeholder="Допълнителни бележки (например мляко, захар...)"></textarea><br>
+      <button type="submit">Изпрати поръчката</button>
+    </form>
+  </div>
+
+  <script>
+    document.getElementById("simpleOrderForm").addEventListener("submit", function(e) {
+      e.preventDefault();
+      const name = this.name.value.trim();
+      const phone = this.phone.value.trim();
+      const address = this.address.value.trim();
+      const product = this.product.value.trim();
+
+      if (name && phone && address && product) {
+        alert(`Благодарим, ${name}! Поръчката ти за "${product}" е получена.`);
+        this.reset();
+      } else {
+        alert("Моля, попълни всички задължителни полета.");
+      }
+    });
+  </script>
+</body>
+</html>
